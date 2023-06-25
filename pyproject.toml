@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "vpragati"
+version = "0.1.0"
+description = ""
+authors = ["HarshPatel285 <harshpatel@glib.ai>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
