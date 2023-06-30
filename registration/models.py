@@ -47,7 +47,7 @@ class IDPinGenerate(SystemMixin, models.Model):
         MaxValueValidator(99999999)
     ])
     share_no = models.PositiveIntegerField(verbose_name="No of Share")
-    share_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Price of Share")
+    share_price = models.FloatField(verbose_name="Price of Share")
     created_user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True,
                                      related_name='%(class)s_created_user')
 

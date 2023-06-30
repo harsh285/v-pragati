@@ -25,9 +25,11 @@
                         <div class="card-body">
                             <h5 class="card-title">Your Referral Code</h5>
                             <p>{{ request.user.referral_code }}</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#referralModal"> Add Referral
-                            </button>
+                            {% if not request.user.referral %}
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#referralModal"> Add Referral
+                                </button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
