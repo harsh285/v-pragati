@@ -24,11 +24,9 @@ class Dashboard(LoginRequiredMixin, TemplateView):
             context['total_sponsor'] = refer_queryset.count()
             print(context['sponsor_income'])
             if context['sponsor_income']:
-                context['total_income'] = float(self.request.user.share_price) + context['sponsor_income']
-                context['profit_percentage'] = context['sponsor_income'] * 100 / context['total_income']
+                context['total_income'] = context['sponsor_income']
             else:
-                context['total_income'] = float(self.request.user.share_price)
-                context['profit_percentage'] = 0
+                context['total_income'] = 0
         except Exception as e:
             print("Error", e)
         return context
