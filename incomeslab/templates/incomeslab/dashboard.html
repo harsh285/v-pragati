@@ -11,5 +11,123 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
+        <section class="section dashboard">
+            <div class="row">
+                <!-- Left side columns -->
+                <div class="col-lg-8">
+                    <div class="row">
+                        <!-- Sales Card -->
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Invested Amount</h5>
+                                    <div class="d-flex align-items-center">
+                                        {#                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">#}
+                                        {#                                            <i class="fas fa-money-bag"></i>#}
+                                        {#                                        </div>#}
+                                        <div class="ps-3">
+                                            <h6>{{ request.user.share_price }}</h6>
+                                            <span class="text-success small pt-1 fw-bold">{{ request.user.share_no }}</span>
+                                            <span class="text-muted small pt-2 ps-1">Share</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Income</h5>
+                                    <div class="d-flex align-items-center">
+                                        {#                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">#}
+                                        {#                                            <i class="bi bi-cart"></i>#}
+                                        {#                                        </div>#}
+                                        <div class="ps-3">
+                                            <h6>{{ total_income }}</h6>
+                                            <span class="text-success small pt-1 fw-bold">{{ profit_percentage|floatformat:2 }}%</span>
+                                            <span class="text-muted small pt-2 ps-1">Profit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sponsor Income</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-cart"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>
+                                                {% if sponsor_income %}
+                                                    {{ sponsor_income }}
+                                                {% else %}
+                                                    0
+                                                {% endif %}
+                                            </h6>
+                                            <span class="text-success small pt-1 fw-bold">{{ total_sponsor }}</span>
+                                            <span class="text-muted small pt-2 ps-1">Sponsored</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Share Fixed Income</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-cart"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>Coming Soon</h6>
+                                            {#                                            <span class="text-success small pt-1 fw-bold">{{ total_sponsor }}</span>#}
+                                            {#                                            <span class="text-muted small pt-2 ps-1">Sponsored</span>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dividend Income</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-cart"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>Coming Soon</h6>
+                                            {#                                            <span class="text-success small pt-1 fw-bold">{{ total_sponsor }}</span>#}
+                                            {#                                            <span class="text-muted small pt-2 ps-1">Sponsored</span>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product Purchase Income</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-cart"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>Coming Soon</h6>
+                                            {#                                            <span class="text-success small pt-1 fw-bold">{{ total_sponsor }}</span>#}
+                                            {#                                            <span class="text-muted small pt-2 ps-1">Sponsored</span>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 {% endblock %}

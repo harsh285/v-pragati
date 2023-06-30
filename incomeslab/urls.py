@@ -9,4 +9,5 @@ urlpatterns = [
     path('generate_id_pin/<pk_pin_id>/', views.GenerateIDPinDetail.as_view(), name="generateIDPinDetail"),
     path('sponser_income/', views.ReferralDetail.as_view(), name="referralDetail"),
     path('add_referral/', views.AddReferralCode.as_view(), name="addReferralCode"),
+    path('my_profile/', views.MyProfileDetail.as_view(), name="myProfileDetail"),
 ]

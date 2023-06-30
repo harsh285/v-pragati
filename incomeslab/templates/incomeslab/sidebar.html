@@ -3,17 +3,43 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'incomeslab:home' %}">
+                {#                <i class="bi bi-grid"></i>#}
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+        <li class="nav-item">
             <a class="nav-link collapsed" href="{% url 'incomeslab:referralDetail' %}">
-                <i class="bi bi-person"></i>
+                {#                <i class="bi bi-upc-scan"></i>#}
                 <span>Sponsor Income</span>
             </a>
         </li><!-- End Profile Page Nav -->
-        <li class="nav-heading">Admin Section</li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{% url 'incomeslab:generateIDPin' %}">
-                <i class="bi bi-person"></i>
-                <span>Generate ID Pin</span>
+            <a class="nav-link collapsed" href="{% url 'incomeslab:home' %}">
+                {#                <i class="bi bi-safe-fill"></i>#}
+                <span>Share Fixed Income</span>
             </a>
         </li><!-- End Profile Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'incomeslab:home' %}">
+                {#                <i class="bi bi-person"></i>#}
+                <span>Dividend Income</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'incomeslab:home' %}">
+                {#                <i class="bi bi-person"></i>#}
+                <span>Product Purchase Income</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+        {% if request.user.is_superuser %}
+            <li class="nav-heading">Admin Section</li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{% url 'incomeslab:generateIDPin' %}">
+                    <i class="bi bi-person"></i>
+                    <span>Generate ID Pin</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
+        {% endif %}
     </ul>
 </aside><!-- End Sidebar-->

@@ -1,5 +1,6 @@
 from django.contrib.auth import views
 from django.db import transaction
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils import timezone
 from django.views.generic import CreateView
@@ -36,7 +37,7 @@ class SignUp(CreateView):
             self.object = form.save()
             obj.created_user = self.object
             obj.save()
-        return super(SignUp, self).form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
         return reverse('registration:login')
