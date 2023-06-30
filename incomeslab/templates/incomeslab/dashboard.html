@@ -1,0 +1,15 @@
+{% extends "incomeslab/page_layout.html" %}
+{% load static %}
+{% block page %}
+    <main class="main" id="main">
+        <div class="pagetitle">
+            <h1>Welcome</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'incomeslab:home' %}">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+    </main>
+{% endblock %}

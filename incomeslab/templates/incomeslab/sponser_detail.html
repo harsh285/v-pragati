@@ -1,0 +1,83 @@
+{% extends "incomeslab/page_layout.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block page %}
+    <main class="main" id="main">
+        <div class="pagetitle">
+            <h1>Sponsor Income</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'incomeslab:home' %}">Home</a></li>
+                    <li class="breadcrumb-item active">Sponsor Income</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+        <section class="section">
+            <div class="row">
+                <div class="col-12">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Your Referral Code</h5>
+                            <p>{{ request.user.referral_code }}</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#referralModal"> Add Referral
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Your Referral Income</h5>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Referred To</th>
+                                    <th scope="col">Referral Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for referral in request.user.referrals.all %}
+                                    <tr>
+                                        <th scope="row">{{ referral.referred_user.get_full_name }}</th>
+                                        <td>{{ referral.referral_amount }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="modal fade" id="referralModal" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="{% url 'incomeslab:addReferralCode' %}">
+                    {% csrf_token %}
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Referral</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-floating">
+                            <input type="text" name="referral_code" id="referral_code" placeholder="Enter Referral Code"
+                                   class="form-control">
+                            <label for="referral_code">Enter Referral Code</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Add Referral</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "incomeslab/page_layout.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block page %}
+    <main class="main" id="main">
+        <div class="pagetitle">
+            <h1>Generate ID Pin</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'incomeslab:home' %}">Home</a></li>
+                    <li class="breadcrumb-item active">Generate ID Pin</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            ID Pin: {{ object.id_pin }}<br>
+                            Share No: {{ object.share_no }}<br>
+                            Share Price: {{ object.share_price }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
