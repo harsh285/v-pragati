@@ -56,7 +56,7 @@
                                                         <td class="col">{{ id_pin_objs.id_pin }}</td>
                                                         <td class="col">{{ id_pin_objs.share_no }}</td>
                                                         <td class="col">{{ id_pin_objs.share_price }}</td>
-                                                        <td class="col">{{ id_pin_objs.created_user }}</td>
+                                                        <td class="col">{{ id_pin_objs.created_user.get_full_name }}</td>
                                                     </tr>
                                                 {% endfor %}
                                                 </tbody>
